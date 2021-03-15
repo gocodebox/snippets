@@ -1,0 +1,21 @@
+
+/**
+ * [lifterlms_hide_content] shortcode examples
+ *
+ * @since 2019-05-01
+ */
+
+
+[lifterlms_hide_content id="1"]
+This will only display to a user with access to the post with an ID of 1.
+[/lifterlms_hide_content]
+
+
+[lifterlms_hide_content id="1,2,3,4" relation="any"]
+This will be displayed only to a user with access to at least one of the posts in the list: 1, 2, 3, or 4.
+[/lifterlms_hide_content]
+
+
+[lifterlms_hide_content id="1,2,3,4" relation="all"]
+This will be displayed only to a user with access to all of the posts in the list: 1, 2, 3, and 4.
+[/lifterlms_hide_content]

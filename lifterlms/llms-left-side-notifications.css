@@ -1,0 +1,16 @@
+
+/**
+ * move LifterLMS popover notifications to the left-hand side of the screen
+ *
+ * @since 2019-03-05
+ */
+@media all and (min-width: 480px) {
+	.llms-notification {
+		right: auto;
+		left: -800px;
+	}
+	.llms-notification.visible {
+			left: 24px;	
+		  right: auto;
+	}
+}
