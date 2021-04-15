@@ -11,7 +11,7 @@
  * @return   array
  */
 function my_custom_merge_codes( $codes ) {
-	$codes['{{TAX}}'] => __( 'Tax', 'my-text-domain' );
+	$codes['{{TAX}}'] = __( 'Tax', 'my-text-domain' );
 	return $codes;
 }
 add_filter( 'llms_notification_view_get_merge_codes_purchase_receipt', 'my_custom_merge_codes' );
