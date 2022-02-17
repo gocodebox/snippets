@@ -3,6 +3,7 @@
  * llms-custom-notification-merge-codes.php
  *
  * @since 2017-10-18
+ * @since 2022-02-17 Filter hook names updated.
  */
 
 /**
@@ -14,7 +15,7 @@ function my_custom_merge_codes( $codes ) {
 	$codes['{{TAX}}'] = __( 'Tax', 'my-text-domain' );
 	return $codes;
 }
-add_filter( 'llms_notification_view_get_merge_codes_purchase_receipt', 'my_custom_merge_codes' );
+add_filter( 'llms_notification_viewpurchase_receipt_get_merge_codes', 'my_custom_merge_codes' );
 
 /**
  * Filter the merged notification email to merge custom merge codes
@@ -34,4 +35,4 @@ function my_custom_merged_string( $string, $notification_view ) {
 	return $string;
 	
 }
-add_filter( 'llms_notification_view_get_merged_string_purchase_receipt', 'my_custom_merged_string', 10, 2 );
+add_filter( 'llms_notification_viewpurchase_receipt_get_merged_string', 'my_custom_merged_string', 10, 2 );
