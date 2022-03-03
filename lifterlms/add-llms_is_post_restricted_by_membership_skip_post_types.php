@@ -5,7 +5,7 @@
  * @since 2016-12-05
  */
 /**
- * Ahh a post type to the list of post types LifterLMS will NOT check for membership restrictions
+ * Add a post type to the list of post types LifterLMS will NOT check for membership restrictions.
  * @param    array     $post_types  array of post type names
  * @return   array
  */
