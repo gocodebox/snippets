@@ -1,0 +1,8 @@
+/**
+ * Avoid odd formatting of loop items (courses, memberships) when using
+ * the Kadence theme and an Elementor Canvas.
+ * see: https://github.com/gocodebox/lifterlms/issues/2057 
+ */
+.llms-loop-list.grid-cols:before {
+	display: none;
+}
