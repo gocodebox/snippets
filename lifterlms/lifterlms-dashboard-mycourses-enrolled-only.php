@@ -1,4 +1,4 @@
-<?php
+<?php // <- do not copy this line.
 /**
  * Display only enrolled courses in dashboard's My Courses.
  *
