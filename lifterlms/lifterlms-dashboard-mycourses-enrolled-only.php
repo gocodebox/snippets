@@ -2,7 +2,7 @@
 /**
  * Display only enrolled courses in dashboard's My Courses.
  *
- * 04-24-2023
+ * @since 04-24-2023
  */
 add_filter(
 	'llms_my_courses_loop_courses_query_args',
