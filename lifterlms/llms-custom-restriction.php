@@ -40,21 +40,16 @@ function my_llms_page_restrictions( $results, $post_id ) {
 	// Only check if we're looking at the post type defined above.
 	if ( in_array( get_post_type( $post_id ), $my_post_types, true ) ) {
 
-		$user_id = get_current_user_id();
+		$user_id  = get_current_user_id();
+		$relation = 'any'; // 'all' = user must be enrolled in all $membership_ids. 'any' = user must be enrolled in at least one of the $product_ids.
+		
+		// Check access.
+		$access = ( $user_id ) ? llms_is_user_enrolled( $user_id, $id, $relation ) : false;
 
-	  	// Loop through ids.
-		foreach ( $membership_ids as $id ) {
-
-			// Check access.
-			$access = ( $user_id ) ? llms_is_user_enrolled( $user_id, $id ) : false;
-
-			// Redirect if use is not logged in or does not have access.
-			if ( ! $access ) {
-				wp_safe_redirect( $redirect_url );
-				exit;
-
-			}
-
+		// Redirect if use is not logged in or does not have access.
+		if ( ! $access ) {
+			wp_safe_redirect( $redirect_url );
+			exit;
 		}
 
 	}
