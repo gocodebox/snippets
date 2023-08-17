@@ -3,6 +3,8 @@
 /**
  * Make address and phone fields not required on free plan checkout.
  *
+ * @since 08/17/2023
+ *
  * @param array $settings The field settings.
  *
  * @return array
