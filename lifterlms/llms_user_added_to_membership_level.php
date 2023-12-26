@@ -10,10 +10,10 @@
  * @param    int     $membership_id   WP Post ID of the Membership
  * @return   void
  */
-function my_enrollment_acton( $student_id, $membership_id ) {
+function my_enrollment_action( $student_id, $membership_id ) {
 
 	// add the last course a user enrolled in to the usermeta table
 	update_user_meta( $student_id, 'last_enrollment_id', $membership_id );
 
 }
-add_action( 'llms_user_added_to_membership_level', 'my_enrollment_acton', 10, 2 );
+add_action( 'llms_user_added_to_membership_level', 'my_enrollment_action', 10, 2 );
