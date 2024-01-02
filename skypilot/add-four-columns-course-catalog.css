@@ -1,0 +1,18 @@
+/**
+ * Add 4 columns on course catalog page on Sky Pilot.
+ * 
+ * Learn more at: https://lifterlms.com/docs/how-to-add-4-columns-on-course-catalog-page-on-sky-pilot/
+ * 
+ * You can add this recipe to your site by creating a custom plugin
+ * or using the Code Snippets plugin available for free in the WordPress repository.
+ * Read this companion documentation for step-by-step directions on either method.
+ * https://lifterlms.com/docs/adding-custom-code/
+ */
+.llms-loop .llms-loop-list {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.llms-loop-item {
+    width: 100% !important;
+}
