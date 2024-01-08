@@ -7,7 +7,7 @@
 add_filter( 'lifterlms_register_post_type_course', 'my_custom_course_settings' );
 function my_custom_course_settings( $obj ) {
 
-  $obj['rewrite']['slug'] = _x( 'c', 'course link slug', 'my-text-domain' );
+  $obj['rewrite']['slug'] = _x( 'your-course-name', 'course link slug', 'my-text-domain' );
 
   return $obj;
 
