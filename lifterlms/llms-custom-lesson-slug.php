@@ -10,8 +10,8 @@
 add_filter( 'lifterlms_register_post_type_lesson', 'my_custom_lesson_settings' );
 function my_custom_lesson_settings( $obj ) {
 
-  $obj['rewrite']['slug'] = _x( 'Your Lesson Name', 'lesson link slug', 'my-text-domain' );
+	$obj['rewrite']['slug'] = _x( 'Your Lesson Name', 'lesson link slug', 'my-text-domain' );
 
-  return $obj;
+	return $obj;
 
 }
