@@ -2,8 +2,9 @@
 /**
  * Output data for a custom column on the student reporting table/export.
  *
- * Since checkboxes can have multiple options selected, this example will also output
- * a comma-separated list of the selected options if needed.
+ * Since certain fields, like a checkbox field, are stored as an array,
+ * this example detects the field type and outputs the expected single value
+ * or a comma-separated list (if needed).
  *
  * Learn more at: https://lifterlms.com/docs/adding-custom-columns-reporting-tables-export-files/
  *
@@ -15,11 +16,10 @@
  */
 function my_students_table_column_for_data( $value, $key, $data, $context ) {
 
-	// Add each custom field key from Data Storage > Usermeta key found in the Block options (ie. checkbox_14_1)
+	// The array of custom field keys you want to include.
 	$field_usermeta_keys = array(
-		'my_custom_checkbox_field',
-// Add any additional fields here, for example:
-//        'my_custom_field',
+		'my_custom_checkbox_field_1',
+		'my_custom_text_field_2',
 	);
 
 	foreach ( $field_usermeta_keys as $field_usermeta_key ) {
@@ -36,15 +36,13 @@ function my_students_table_column_for_data( $value, $key, $data, $context ) {
 						continue;
 					}
 
-					// Get the label for the selected checkbox
+					// Get the label for the selected value
 					$labels[] = $options[ $field_usermeta_key ]['options'][ $selected_value ] ?? $selected_value;
 				}
 				return implode( ', ', $labels );
 			}
 
-			// This could either be a simple value, such as a Text input, or
-			// from something like a single-option select box or radio input.
-			// Try to find the selected value in the custom field options and if it doesn't exist, use the value as-is.
+			// Return the field's value
 			return $options[ $field_usermeta_key ]['options'][ $selected_value ] ?? $selected_value;
 		}
 	}
@@ -62,21 +60,18 @@ add_filter( 'llms_table_get_data_students', 'my_students_table_column_for_data',
  */
 function my_students_table_columns( $cols ) {
 
-	// You can add multiple columns here, just copy the array below and change the key and title
-
-	// Replace my_custom_checkbox_field with the Data Storage > Usermeta key found in the Block options (ie. checkbox_14_2)
-	$cols['my_custom_checkbox_field'] = array(
-		'title'       => __( 'My Custom Checkbox Field', 'my-text-domain' ),
+	// Add a new column for each custom field key you want to include.
+	$cols['my_custom_checkbox_field_1'] = array(
+		'title'       => __( 'My Checkbox Field', 'my-text-domain' ),
 		'export_only' => false, // Set to true to hide from screens but still include in exports.
 		'exportable'  => true, // Set to false to exclude from exports.
 	);
 
-	// Here's an example of another one, just remove the comment slashes to enable it
-//    $cols['my_custom_field'] = array(
-//        'title'       => __( 'My Custom Field', 'my-text-domain' ),
-//        'export_only' => false, // Set to true to hide from screens but still include in exports.
-//        'exportable'  => true, // Set to false to exclude from exports.
-//    );
+	$cols['my_custom_text_field_2'] = array(
+		'title'       => __( 'My Text Field', 'my-text-domain' ),
+		'export_only' => false, // Set to true to hide from screens but still include in exports.
+		'exportable'  => true, // Set to false to exclude from exports.
+	);
 
 	return $cols;
 
