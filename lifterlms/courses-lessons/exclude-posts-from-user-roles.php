@@ -10,24 +10,31 @@
  */
 
 function exclude_posts_for_roles($query) {
-    // Check if it is the main query and the user is logged in
-    if (is_admin() || !$query->is_main_query() || !is_user_logged_in()) {
+    // Do not exclude when the user is the WordPress administrator
+    if (is_admin()) {
         return;
     }
 
     // Replace the array with your actual roles you want
     $roles_to_exclude = array(
-		    'student',
-		    'editor'
-	  );
+		'student',
+		'editor'
+	);
 
     // Replace the array with your actual post IDs to exclude
     $posts_to_exclude = array(
-		    98,
-		    109
-	  );
+		20,
+		22
+	);
 
-    // Check if the user has any of the specified roles
+    // If the user is not logged in, we cannot check their role
+    // So exclude the posts from non-logged in visitors
+    if (!is_user_logged_in()) {
+       $query->set('post__not_in', $posts_to_exclude);
+       return;
+	}
+
+    // Check if the logged-in user has any of the specified roles
     $user_has_excluded_role = false;
     foreach ($roles_to_exclude as $role) {
         if (current_user_can($role)) {
