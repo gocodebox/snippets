@@ -1,5 +1,4 @@
-<?php
-
+<?php // Do not copy this line!
 /**
  * Exclude posts (given their IDs) from being seen by users given a list of roles.
  *
@@ -10,7 +9,7 @@
  * Read this companion documentation for step-by-step directions on either method.
  * https://lifterlms.com/docs/adding-custom-code/
  *
- * @param WP_Query @query The WP_Query to modify.
+ * @param WP_Query $query The WP_Query to modify.
  */
 function exclude_posts_for_roles( $query ) {
 	// Do not exclude when the user is the WordPress administrator.
