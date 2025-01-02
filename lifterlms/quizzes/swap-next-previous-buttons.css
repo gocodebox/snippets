@@ -1,0 +1,18 @@
+/* Move buttons on the right */
+#llms-quiz-nav button {
+    float: right;
+}
+/* Prev question button on the left */
+#llms-quiz-nav #llms-prev-question {
+    float: left;
+}
+/* Ensure quiz counter is displayed on a different line */
+.llms-quiz-ui .llms-quiz-counter {
+    width: 100%;
+    text-align: right;
+}
+footer#llms-quiz-nav::after {
+    display: block;
+    content: '';
+    clear: both;
+}
