@@ -27,9 +27,9 @@ Please include the following header format when submitting a snippet
 ```
 /**
  * Describe what the snippet does in one sentence. (i.e. Add a checkbox to the checkout page.)
- * 
+ *
  * Learn more at: https://lifterlms.com/link-to-content-if-available-or-remove-this-line/
- * 
+ *
  * You can add this recipe to your site by creating a custom plugin
  * or using the Code Snippets plugin available for free in the WordPress repository.
  * Read this companion documentation for step-by-step directions on either method.
