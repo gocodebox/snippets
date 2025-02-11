@@ -1,0 +1,8 @@
+/**
+ * Hide the has quiz and has assignment labels.
+ *
+ * @since 2025-02-11
+ */
+span.llms-lesson-has-quiz, span.llms-lesson-has-assignment {
+    display: none;
+}
