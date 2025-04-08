@@ -36,6 +36,7 @@ function llms_add_turnstile_check() { ?>
 }
 add_action( 'llms_checkout_footer_before', 'llms_add_turnstile_check' );
 add_action( 'lifterlms_after_registration_fields', 'llms_add_turnstile_check' );
+add_action( 'lifterlms_after_free_enroll_fields', 'llms_add_turnstile_check' );
 
 function llms_validate_turnstile( $valid ) {
     // If $valid is already a truthy, return early since something else already encountered a validation issue.
