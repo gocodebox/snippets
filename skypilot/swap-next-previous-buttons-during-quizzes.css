@@ -1,0 +1,18 @@
+/**
+ * Swap the previous and next buttons during quizzes with the Sky Pilot theme.
+ * 
+ * You can add this recipe to your site by creating a custom plugin
+ * or using the Code Snippets plugin available for free in the WordPress repository.
+ * Read this companion documentation for step-by-step directions on either method.
+ * https://lifterlms.com/docs/adding-custom-code/
+ */
+footer#llms-quiz-nav {
+    display: flex;
+    flex-direction: row-reverse;
+}
+button#llms-prev-question {
+    order: 2;
+}
+button#llms-next-question {
+    order: 1;
+}
